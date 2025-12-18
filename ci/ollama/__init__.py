@@ -15,7 +15,7 @@ def chat(model, messages, options=None):
     
     if github_token:
         client = OpenAI(
-            base_url=CF_BASE_URL,
+            base_url=os.environ.get("CF_BASE_URL"),
             api_key=github_token,
         )
         
