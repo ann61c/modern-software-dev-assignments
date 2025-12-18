@@ -15,7 +15,7 @@ def chat(model, messages, options=None):
     
     if github_token:
         client = OpenAI(
-            base_url="https://gateway.ai.cloudflare.com/v1/33ec7b75ba029f7717673fe76ddfd55d/chatwise/compat/",
+            base_url=CF_BASE_URL,
             api_key=github_token,
         )
         
