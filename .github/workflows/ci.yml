@@ -40,11 +40,16 @@ jobs:
           PYTHONPATH: ci:.
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            # Skip __init__.py files and files in the ci/ directory
+            if [[ "$file" == *"__init__.py" ]] || [[ "$file" == ci/* ]]; then
+              echo "⏩ Skipping: $file (utility file)"
+              continue
+            fi
+
             echo "------------------------------------------------"
             echo "🚀 Running: $file"
             
             # Run the script and capture output
-            # We use 'tee' to show output and capture it
             OUTPUT=$(uv run python "$file" 2>&1 | tee /dev/stderr)
             
             # Check for SUCCESS
