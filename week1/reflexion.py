@@ -15,7 +15,13 @@ Keep the implementation minimal.
 """
 
 # TODO: Fill this in!
-YOUR_REFLEXION_PROMPT = ""
+YOUR_REFLEXION_PROMPT = """
+You're a self-reflecting code debugger. When provided with code and its execution failures, you must:
+1. Analyze WHY the current implementation is incorrect.
+2. Identify the specific constraints or edge cases that were missed. 
+3. Rewrite the code to satisfy ALL requirements and fix ALL reported failures. 
+4. Return only the corrected code block.
+"""
 
 
 # Ground-truth test suite used to evaluate generated code
@@ -96,7 +102,17 @@ def your_build_reflexion_context(prev_code: str, failures: List[str]) -> str:
 
     Return a string that will be sent as the user content alongside the reflexion system prompt.
     """
-    return ""
+    reflexion_context = f"""
+    ### Previous Code ###
+    {prev_code}
+    
+    ### Failures ###
+    {failures}
+    
+    ### Task ###
+    Based on the failures above, identify the logic errors and provide an improved implementation.
+    """
+    return reflexion_context
 
 
 def apply_reflexion(
