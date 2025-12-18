@@ -29,6 +29,4 @@ def chat(model, messages, options=None):
     else:
         # Fallback or Mock
         print(f"DEBUG: CI Shim active. Model: {model}. Messages: {messages}")
-        # If no token, we can just return a successful mock if possible, 
-        # but the user wants to "run" it, so we need a real LLM or a smart mock.
-        return OllamaResponse("SUCCESS") # Very simplistic mock
+        return OllamaResponse("CI_MOCK_FALLBACK_NO_TOKEN")

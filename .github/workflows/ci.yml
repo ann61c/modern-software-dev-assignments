@@ -52,11 +52,11 @@ jobs:
             # Run the script and capture output
             OUTPUT=$(uv run python "$file" 2>&1 | tee /dev/stderr)
             
-            # Check for SUCCESS
-            if echo "$OUTPUT" | grep -q "SUCCESS"; then
+            # Check for exactly "SUCCESS" on its own line
+            if echo "$OUTPUT" | grep -Fxq "SUCCESS"; then
               echo "✅ $file PASSED with SUCCESS"
             else
-              echo "❌ $file FAILED: 'SUCCESS' not found in output"
+              echo "❌ $file FAILED: 'SUCCESS' line not found in output"
               exit 1
             fi
           done

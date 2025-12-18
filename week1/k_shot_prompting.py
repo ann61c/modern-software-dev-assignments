@@ -7,7 +7,7 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = """You are an expert at reversing the order of letters in words. Given a word, you will reverse the order of its letters and output only the reversed word(the Anadrome). No changes to the word are allowed, and no change of case is allowed. 
+YOUR_SYSTEM_PROMPT = """You are an expert at reversing the order of letters in words. Given a word, you will reverse the order of its letters and output only the reversed word(the Anadrome). No changes to the word are allowed, and no change of case is allowed.
 
 Examples:
 "denim": "mined";
