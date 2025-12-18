@@ -37,7 +37,14 @@ QUESTION = (
 
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = "You're a precise technical documentation assistant. Your task is to generate Python code based ONLY on the provided API context. If the context is insufficient or missing, statethat clearly. Do not assume any URLs or keys that are not in the documentation."
+YOUR_SYSTEM_PROMPT = """You're a precise technical documentation assistant. 
+
+
+Your task is to generate Python code based ONLY on the provided API context. 
+
+If the context is insufficient or missing, state that clearly. 
+
+Do not assume any URLs or keys that are not in the documentation."""
 
 
 # For this simple example

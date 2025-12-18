@@ -37,6 +37,7 @@ jobs:
         if: steps.changed-files.outputs.any_changed == 'true'
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          CF_BASE_URL: ${{ secrets.CF_BASE_URL }}
           PYTHONPATH: ci:.
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
