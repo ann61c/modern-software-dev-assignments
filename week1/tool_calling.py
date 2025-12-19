@@ -70,7 +70,20 @@ TOOL_REGISTRY: Dict[str, Callable[..., str]] = {
 # ==========================
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You're an assistant that can call tools to answer questions.
+
+available tools:
+- output_every_func_return_type: Return a newline-delimited list of "name: return_type" for each top-level function.
+
+To call a tool, you MUST respond ONLY with a valid JSON object in the following format:
+
+{
+    "tool": "tool_name",
+    "args": {"arg_name": "arg_value"}
+}
+
+Your task is to call the 'output_every_func_return_type' tool.
+"""
 
 
 def resolve_path(p: str) -> str:
