@@ -3,30 +3,25 @@
 This is the home of the assignments for [CS146S: The Modern Software Developer](https://themodernsoftware.dev), taught at Stanford University fall 2025.
 
 ## Repo Setup
+These steps work with Python 3.12.
 
-This project uses [uv](https://github.com/astral-sh/uv) for lightning-fast Python package and project management.
+1. Install Anaconda
+   - Download and install: [Anaconda Individual Edition](https://www.anaconda.com/download)
+   - Open a new terminal so `conda` is on your `PATH`.
 
-1. **Install uv** (if not already installed):
+2. Create and activate a Conda environment (Python 3.12)
    ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh
+   conda create -n cs146s python=3.12 -y
+   conda activate cs146s
    ```
 
-2. **Setup Project & Environment**:
-   From the repository root, simply run:
+3. Install Poetry
    ```bash
-   uv sync
-   ```
-   This will automatically create a virtual environment (`.venv`) and install all dependencies.
-
-3. **Run Commands**:
-   You can run any script or tool using `uv run`:
-   ```bash
-   uv run pytest
-   uv run python week1/chain_of_thought.py
+   curl -sSL https://install.python-poetry.org | python -
    ```
 
-## Development
-
-- **Add a dependency**: `uv add <package>`
-- **Check dependency tree**: `uv tree`
-- **Active environment**: `source .venv/bin/activate` (optional, as `uv run` handles this automatically)
+4. Install project dependencies with Poetry (inside the activated Conda env)
+   From the repository root:
+   ```bash
+   poetry install --no-interaction
+   ```
